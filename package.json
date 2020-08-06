@@ -1,0 +1,50 @@
+{
+  "name": "backendsabordocampo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.626.0",
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "consolidate": "^0.15.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "googleapis": "^49.0.0",
+    "imgur-upload": "^0.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "mysql2": "1.5.2",
+    "nodemailer": "^6.4.2",
+    "nodemon": "^2.0.2",
+    "open": "^7.1.0",
+    "sequelize": "^5.22.3",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1",
+    "sucrase": "^3.12.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennergazevedo/backend_artcopias.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/dennergazevedo/backend_artcopias/issues"
+  },
+  "homepage": "https://github.com/dennergazevedo/backend_artcopias#readme",
+  "description": ""
+}
