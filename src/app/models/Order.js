@@ -7,6 +7,9 @@ class Order extends Model {
         bairro: Sequelize.INTEGER,
         qnt: Sequelize.INTEGER,
         subtotal: Sequelize.FLOAT,
+        periodicidade: Sequelize.INTEGER,
+        pagamento: Sequelize.STRING,
+        ativo: Sequelize.INTEGER,
       },
       {
         sequelize,

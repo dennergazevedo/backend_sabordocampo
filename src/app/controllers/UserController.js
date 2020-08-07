@@ -56,6 +56,37 @@ class UserController {
     return res.status(200).json(userExists);
   }
 
+  async searchAllPage(req, res) {
+    const { page, limit } = req.params;
+    const offset = page * limit;
+    const final = Number(offset) + Number(limit);
+
+    if (page === '0' || page === 0) {
+      const userCod = await User.findAll();
+      userCod.reverse();
+      const userRev = userCod.slice(0, limit);
+      if (userRev) return res.json(userRev);
+    } else {
+      const userCod = await User.findAll();
+      userCod.reverse();
+      const userRev = userCod.slice(offset, Number(final));
+      if (userRev) return res.json(userRev);
+    }
+
+    return res.status(400).json({ error: 'Nenhum encontrado!' });
+  }
+
+  async searchPageResults(req, res) {
+    const userCod = await User.findAll();
+
+    if (userCod) {
+      const pages = userCod.length;
+      return res.json(pages);
+    }
+
+    return res.status(400).json({ error: 'Nenhum encontrado!' });
+  }
+
   async delete(req, res) {
     const userExists = await User.findOne({
       where: { id: req.params.id },

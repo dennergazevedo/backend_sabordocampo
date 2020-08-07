@@ -37,6 +37,12 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false,
       },
+      pagamento: {
+        type: Sequelize.STRING,
+      },
+      ativo: {
+        type: Sequelize.INTEGER,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

@@ -11,6 +11,7 @@ import FileController from './app/controllers/FileController';
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import ProductController from './app/controllers/ProductController';
+import MailController from './app/controllers/MailController';
 
 const upload = multer(multerConfig);
 
@@ -30,6 +31,13 @@ routes.delete('/delete_address/:id', AddressController.delete);
 routes.post('/register_order', OrderController.register);
 routes.put('/update_order/:id', OrderController.update);
 routes.get('/search_order/:id', OrderController.search);
+routes.get('/search_all_orders/:id', OrderController.searchAll);
+routes.get('/search_orders_page/:page/:limit', OrderController.searchOrders);
+routes.get('/search_orders_results', OrderController.searchPageResultsOrder);
+routes.get('/search_assign_page/:page/:limit', OrderController.searchAssign);
+routes.get('/search_assign_results', OrderController.searchPageResultsAssign);
+routes.get('/search_page_orders/:page/:limit', OrderController.searchAllPage);
+routes.get('/search_pageorder_results', OrderController.searchPageResults);
 routes.delete('/delete_order/:id', OrderController.delete);
 
 // USER CONTROLLER
@@ -37,6 +45,8 @@ routes.post('/register_user', UserController.register);
 routes.put('/update_user/:id', UserController.update);
 routes.put('/update_user_pass/:id', UserController.updatePass);
 routes.get('/search_user/:id', UserController.search);
+routes.get('/search_all_users/:page/:limit', UserController.searchAllPage);
+routes.get('/search_results_users', UserController.searchPageResults);
 routes.delete('/delete_user/:id', UserController.delete);
 
 // PRODUCT CONTROLLER
@@ -50,6 +60,9 @@ routes.delete('/delete_product/:id', ProductController.delete);
 // FILE CONTROLLER
 routes.post('/upload_file', upload.single('file'), FileController.imgur);
 routes.get('/search_img/:id', FileController.searchimg);
+
+// MAIL CONTROLLER
+routes.post('/send-email', MailController.sendEmail);
 
 // AUTENTICAÇÃO
 routes.use(authMiddleware);
