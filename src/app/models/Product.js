@@ -9,6 +9,10 @@ class Product extends Model {
         subtitulo: Sequelize.STRING,
         valor: Sequelize.FLOAT,
         estoque: Sequelize.INTEGER,
+        peso: Sequelize.INTEGER,
+        altura: Sequelize.INTEGER,
+        largura: Sequelize.INTEGER,
+        comprimento: Sequelize.INTEGER,
       },
       {
         sequelize,

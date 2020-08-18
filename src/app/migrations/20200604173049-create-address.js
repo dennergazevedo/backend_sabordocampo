@@ -9,27 +9,21 @@ module.exports = {
       },
       cep: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       logradouro: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       numero: {
         type: Sequelize.INTEGER,
-        allowNull: false,
       },
       bairro: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       cidade: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       estado: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       user_id: {
         type: Sequelize.INTEGER,

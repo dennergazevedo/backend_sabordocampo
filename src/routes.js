@@ -33,6 +33,7 @@ routes.put('/update_order/:id', OrderController.update);
 routes.get('/search_order/:id', OrderController.search);
 routes.get('/search_all_orders/:id', OrderController.searchAll);
 routes.get('/search_orders_page/:page/:limit', OrderController.searchOrders);
+routes.get('/search_by_email/:email', OrderController.searchByEmail);
 routes.get('/search_orders_results', OrderController.searchPageResultsOrder);
 routes.get('/search_assign_page/:page/:limit', OrderController.searchAssign);
 routes.get('/search_assign_results', OrderController.searchPageResultsAssign);
@@ -48,6 +49,7 @@ routes.get('/search_user/:id', UserController.search);
 routes.get('/search_all_users/:page/:limit', UserController.searchAllPage);
 routes.get('/search_results_users', UserController.searchPageResults);
 routes.delete('/delete_user/:id', UserController.delete);
+routes.post('/reset_password', UserController.resetPass);
 
 // PRODUCT CONTROLLER
 routes.post('/register_product', ProductController.register);
@@ -56,6 +58,7 @@ routes.get('/search_product/:id', ProductController.search);
 routes.get('/search_product_title/:title', ProductController.searchTitle);
 routes.get('/search_all_product', ProductController.searchAll);
 routes.delete('/delete_product/:id', ProductController.delete);
+routes.post('/frete_correios', ProductController.frete);
 
 // FILE CONTROLLER
 routes.post('/upload_file', upload.single('file'), FileController.imgur);
@@ -63,6 +66,7 @@ routes.get('/search_img/:id', FileController.searchimg);
 
 // MAIL CONTROLLER
 routes.post('/send-email', MailController.sendEmail);
+routes.post('/forgot-pass', MailController.forgotPassword);
 
 // AUTENTICAÇÃO
 routes.use(authMiddleware);

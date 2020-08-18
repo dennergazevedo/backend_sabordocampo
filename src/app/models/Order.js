@@ -10,6 +10,7 @@ class Order extends Model {
         periodicidade: Sequelize.INTEGER,
         pagamento: Sequelize.STRING,
         ativo: Sequelize.INTEGER,
+        frete: Sequelize.FLOAT,
       },
       {
         sequelize,
@@ -21,6 +22,7 @@ class Order extends Model {
   static associate(models) {
     this.belongsTo(models.Product, { foreignKey: 'product_id' });
     this.belongsTo(models.User, { foreignKey: 'user_id' });
+    this.belongsTo(models.Address, { foreignKey: 'address_id' });
   }
 }
 

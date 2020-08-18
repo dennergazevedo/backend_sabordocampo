@@ -13,6 +13,8 @@ class User extends Model {
         document: Sequelize.STRING,
         email: Sequelize.STRING,
         token: Sequelize.STRING,
+        reset_token: Sequelize.STRING,
+        reset_expires: Sequelize.DATE,
       },
       {
         sequelize,

@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import User from '../models/User';
 
 class UserController {
@@ -99,6 +100,41 @@ class UserController {
     userExists.destroy();
 
     return res.status(200).json('Usuário apagado com sucesso.');
+  }
+
+  async resetPass(req, res) {
+    const { email, token, password } = req.body;
+
+    try {
+      const user = await User.findOne({ where: { email } });
+
+      if (!user) {
+        return res.status(400).json({ error: 'Usuário não encontrado' });
+      }
+
+      if (token !== user.get().reset_token) {
+        return res.status(400).json({ error: 'Token Inválido' });
+      }
+
+      const now = new Date();
+
+      if (now > user.get().reset_expires) {
+        return res.status(400).json({ error: 'Token Expirado ' });
+      }
+
+      const reset_token = null;
+
+      user.set({ password }, { where: user });
+      user.set({ reset_token }, { where: user });
+
+      await user.save();
+
+      return res.status(200).json('Senha atualizada com sucesso');
+    } catch (error) {
+      res
+        .status(400)
+        .json({ error: 'Erro ao atualizar senha, verifique os dados!' });
+    }
   }
 }
 

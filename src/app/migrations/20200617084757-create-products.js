@@ -35,6 +35,22 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
+      peso: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      altura: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      largura: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      comprimento: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

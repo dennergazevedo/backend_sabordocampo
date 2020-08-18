@@ -1,6 +1,8 @@
 import Order from '../models/Order';
+import User from '../models/User';
 
 const { Op } = require('sequelize');
+
 class OrderController {
   async register(req, res) {
     const { id } = await Order.create(req.body);
@@ -88,6 +90,21 @@ class OrderController {
     }
 
     return res.status(400).json({ error: 'Nenhum encontrado!' });
+  }
+
+  async searchByEmail(req, res) {
+    const userExists = await User.findOne({
+      where: { email: req.params.email },
+    });
+
+    if (userExists) {
+      const orderExists = await Order.findAll({
+        where: { user_id: userExists.id },
+      });
+      if (orderExists) res.json(orderExists);
+    }
+
+    res.status(400).json({ error: 'Ordem não encontrada' });
   }
 
   async searchPageResultsOrder(req, res) {
