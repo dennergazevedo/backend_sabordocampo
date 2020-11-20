@@ -13,6 +13,7 @@
     "body-parser": "^1.19.0",
     "consolidate": "^0.15.1",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "googleapis": "^49.0.0",
@@ -26,6 +27,7 @@
     "nodemon": "^2.0.2",
     "open": "^7.1.0",
     "sequelize": "^5.22.3",
+    "xml2js": "^0.4.23",
     "yargs": "^15.3.1"
   },
   "devDependencies": {

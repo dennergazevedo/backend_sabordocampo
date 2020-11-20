@@ -6,11 +6,10 @@ const checkIfKeysExists = require('./error/checkIfKeysExists');
 const mountErrorMessage = require('./error/mountErrorMessage');
 
 module.exports = {
-    checkIfKeysExists,
-    mountErrorMessage,
-    mountSearchParams,
-    replaceBrackets,
-    parseResponse,
-    makeRequest,
+  checkIfKeysExists,
+  mountErrorMessage,
+  mountSearchParams,
+  replaceBrackets,
+  parseResponse,
+  makeRequest,
 };
-

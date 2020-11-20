@@ -1,18 +1,18 @@
+/* eslint-disable no-prototype-builtins */
 const checkIfKeysExists = (obj, array) => {
+  const errors = [];
 
-    const errors = [];
+  array.map(key => {
+    const result = obj.hasOwnProperty(key);
 
-    array.map((key) => {
-        const result = obj.hasOwnProperty(key);
-        
-        if (!result) errors.push(key);
-        
-        return errors;
-    });
-    
-    if (errors.length === 0) return false;
-    
+    if (!result) errors.push(key);
+
     return errors;
+  });
+
+  if (errors.length === 0) return false;
+
+  return errors;
 };
 
 module.exports = checkIfKeysExists;
