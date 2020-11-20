@@ -81,7 +81,7 @@ class ProductController {
       sDsSenha: '',
       nCdServico: '04510',
       sCepOrigem: '35930004',
-      sCepDestino: cep,
+      sCepDestino: parseInt(cep, 10),
       nVlPeso: parseInt(peso, 10),
       nCdFormato: 1,
       nVlComprimento: parseInt(comprimento, 10),
